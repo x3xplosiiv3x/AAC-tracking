@@ -1,6 +1,7 @@
 from tkinter import *
 
 window=Tk()
+window.attributes('-alpha',.7)
 screen_width = window.winfo_screenwidth()
 screen_height = window.winfo_screenheight()
 window.geometry(f'{screen_width}x{screen_height}+-8+0')
@@ -13,7 +14,7 @@ window.geometry(f'{screen_width}x{screen_height}+-8+0')
 def select(value):
     entry.insert(END,value)
 
-window["bg"]="Blue"
+
 window.title('AAC')
 
 buttons = ["This is a test ", "I am testing you ", "Of course this is anther test ",'but is this another test ', 'and yet anotehr one', 'and so on and so forth bc']
