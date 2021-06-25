@@ -1,32 +1,46 @@
 import numpy as np
 import cv2 as cv
 cap = cv.VideoCapture(0)
+cap.set(3, 1920)
+cap.set(4, 1080)
+
+def rescale_frame(frame, percent=75):
+    width = int(frame.shape[1] * percent/ 100)
+    height = int(frame.shape[0] * percent/ 100)
+    dim = (width, height)
+    return cv.resize(frame, dim, interpolation =cv.INTER_AREA)
+
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
 while True:
     # Capture frame-by-frame
     ret, frame = cap.read()
+    
+
+    
+    
     # if frame is read correctly ret is True
     if not ret:
         print("Can't receive frame (stream end?). Exiting ...")
         break
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
-    video_flip = cv.flip(frame,1)
+    
 
-
-
+    
     lower_pink = np.array([120,90,200])
     upper_pink = np.array([170,130,240])
     mask = cv.inRange(hsv, lower_pink, upper_pink)
 
-    #res = cv.bitwise_and(frame,frame, mask= mask)
-    mask_flip = cv.flip(mask,1)
-    #res_flip = cv.flip(res,1)
+    
+    
+   
 
     kernal = np.ones((5,5),"uint8")
 
     mask = cv.dilate(mask, kernal)
+    
+    
 
     contours, hierarchy = cv.findContours(mask,
                                            cv.RETR_TREE,
@@ -55,6 +69,7 @@ while True:
 
 
     frame = cv.flip(frame,1)
+    #frame75 = rescale_frame(frame, percent=150)
     cv.imshow('Tracking', frame)
     #cv.imshow('Video Cam', video_flip)
     #cv.imshow('mask',mask_flip)
