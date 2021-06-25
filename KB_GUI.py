@@ -1,7 +1,7 @@
 from tkinter import *
 
 window=Tk()
-window.attributes('-alpha',.7)
+window.attributes('-alpha',1)
 screen_width = window.winfo_screenwidth()
 screen_height = window.winfo_screenheight()
 window.geometry(f'{screen_width}x{screen_height}+-8+0')
