@@ -84,7 +84,7 @@ while True:
 
     tes = cv.flip(res,1)#mirrors the window for visual accuracy
     frame75 = rescale_frame(tes, percent=150)
-    #cv.imshow('Tracking', frame75)
+    cv.imshow('Tracking', frame75)
    
 
 
