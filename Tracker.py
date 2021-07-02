@@ -83,8 +83,12 @@ while True:
 
 
     tes = cv.flip(res,1)#mirrors the window for visual accuracy
-    frame75 = rescale_frame(tes, percent=150)
-    cv.imshow('Tracking', frame75)
+    frame150 = rescale_frame(tes, percent=150) #rescales by 150%
+    #cv.imshow('Tracking', frame150)#displays rescaled image
+
+    
+    frame = cv.flip(frame, 1)
+    cv.imshow('Color Tracking', frame) #displays color version of the tracker
    
 
 

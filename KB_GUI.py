@@ -18,28 +18,39 @@ p.close()
 def select(value):
     entry.insert(END,value)
 
+def delete():
+    entry.delete('1.0', 'end')
+
 
 window.title('AAC')
 
-#buttons = ["This is a test ", "I am testing you ", "Of course this is anther test ",'but is this another test ', 'and yet anotehr one', 'and so on and so forth bc']
+
 varRow = 2
 varColumn = 0
 
 
-entry = Text(window, width = 100, font = ('arial', 12))
-entry.grid(row=1, columnspan=40)
+entry = Text(window, width = 170, font = ('arial', 12))
+entry.grid(row=1, columnspan=40, sticky='w')
 
 for phrases in phrase_list:
     command = lambda x= phrases: select(x)
     
-    Button(window, text=phrases, padx=2, pady=2, bd=8, font=('arial', 15), command = command).grid(row=varRow, column = varColumn)
+    
+    if phrases == 'DELETE':
+        Button(window, text=phrases, background='Red', width=21, padx=2, pady=2, bd=8, font=('arial', 15), command = delete).grid(row=varRow, column = varColumn)
+    if phrases != 'DELETE' and phrases[0]!= '#':
+        Button(window, text=phrases, width=21, padx=2, pady=2, bd=8, font=('arial', 15), command = command).grid(row=varRow, column = varColumn)
     varColumn += 1
-    if varColumn > 1 and varRow ==2:
+    if phrases[0] == '#':
+        varColumn -= 1
+    
+    if varColumn > 5 and varRow ==2:
         varColumn = 0
         varRow+=1
-    if varColumn > 1 and varRow ==3:
-        varColumn=0
+    if varColumn > 5 and varRow ==3:
+        varColumn = 0
         varRow+=1
+        
 
 
 

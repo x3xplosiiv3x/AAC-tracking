@@ -1,12 +1,15 @@
-This is a test
-This is a new line
-to add a new line just type something in a different spot
-a new line is cool
-this helps me add whatever i want
-whenever i want
-This is a test
-This is a new line
-to add a new line just type something in a different spot
-a new line is cool
-this helps me add whatever i want
-whenever i want
+###You can only a MAX have 27 characters (spaces included) in each phrase
+###You must hit space after u finish your phrase
+DELETE
+This is a test and this and
+Can I have a drink please
+to add a new line just type something in a different spot 
+a new line is cool 
+this helps me add whatever i want 
+whenever i want 
+This is a test 
+This is a new line 
+to add a new line just type something in a different spot 
+a new line is cool 
+this helps me add whatever i want 
+whenever i want 
